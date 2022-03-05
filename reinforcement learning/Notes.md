@@ -1,5 +1,3 @@
-[toc]
-
 # [Contrastive Explanation for Reinforcement Learning via Embedded Self Prediction](./contrastive_explanations_for_reinforcement_learning_via_embedded_self_predictions.pdf)
 [arxiv](https://arxiv.org/abs/2010.05180)
 
@@ -61,6 +59,15 @@ $\hat Q(s,a) - \hat Q(s,b) = \Delta_F^\pi(s, a, b) \cdot W(s,a,b)$
 $\Delta_F^\pi(s,a,b)$,其对结果的影响则是权重W。
 
 #### 非线性
+对非线性的情况采用积分梯度(Integrated Gradient)的方式计算两个不同轨迹特征之间差异在最后Q值上的表现如下
+$$\theta_i(s, a, b) = \int_{0}^{1} \frac{\partial \hat C(\hat Q_F^\pi(s, b)-\alpha \cdot (\hat Q_F^\pi(s, a) - \hat Q_F^\pi(s, b)))}{\partial [\hat Q_F^\pi(s, a)]_i} d\alpha$$
+
+便可以得到不同特征在Q函数不同动作上的表现如下
+$$\hat Q(s,a) - \hat Q(s,b) = \theta (s, a, b) \cdot \Delta_F(s, a, b)$$
+可以得到和线性情况相同的解释。
+
+### Experiment
+![](fig\Contrastive%20Explanation%20for%20RL%20via%20ESP\exp.jpg)
 
 ## Conclusion
 
