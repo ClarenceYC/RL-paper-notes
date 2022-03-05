@@ -30,7 +30,7 @@ agent决策动作时偏好价值函数更大的动作，不同于人类会区分
 
 <br/>
 
-对当前状态下不同的两个动作a,b，则可以通过比较<img src="http://latex.codecogs.com/gif.latex?\Delta_F^pi(s,a,b)=Q_F^\pi(s, a)-Q_F^\pi(s, b)">
+对当前状态下不同的两个动作a,b，则可以通过比较<img src="http://latex.codecogs.com/gif.latex?\Delta_F^\pi(s,a,b)=Q_F^\pi(s, a)-Q_F^\pi(s, b)">
 便个凸显出两个不同的动作在未来轨迹上的差异。
 
 <br/>
