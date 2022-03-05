@@ -38,7 +38,27 @@ agent决策动作时偏好价值函数更大的动作，不同于人类会区分
 整个模型的框架可以如下图展现，最后将状态GVF再映射到Q函数上。
 
 ![](fig/Contrastive%20Explanation%20for%20RL%20via%20ESP/ESP_frame.jpg)
+
+### 训练
+如同上图展示，<img src="http://latex.codecogs.com/gif.latex?\hat C(\cdot;\theta_C )" />将状态广义价值函数映射至Q值；
+<img src="http://latex.codecogs.com/gif.latex?\hat Q_F^\pi(\cdot; \theta_F)" />将状态映射至人工设置状态价值特征。
+其对应训练算法如下图所示
+
 ![](fig/Contrastive%20Explanation%20for%20RL%20via%20ESP/ESP_algo.jpg)
+
+### 动作差异可解释性分析
+对<img src="http://latex.codecogs.com/gif.latex?\hat Q(s,a) - \hat Q(s,b) > 0" />有
+<img src="http://latex.codecogs.com/gif.latex?\Delta_F^\pi(s, a, b)">，进一步
+<img src="http://latex.codecogs.com/gif.latex?\hat Q(s,a) - \hat Q(s,b) = \Delta_F^\pi(s, a, b) \cdot W(s,a,b)" />
+其中<img src="http://latex.codecogs.com/gif.latex?W(s, a, b) \in \mathbb{R}^n">是轨迹状态广义价值函数差对应的权重。
+
+#### 线性
+当在简单的线性情况下，当且仅当<img src="http://latex.codecogs.com/gif.latex?\Delta_F^\pi(s, a, b) \cdot W(s,a,b) > 0" />
+有<img src="http://latex.codecogs.com/gif.latex?\hat Q(s,a) - \hat Q(s,b) > 0" />。
+这便是控制在人设计的轨迹特征偏好下，选择更有利于reward的轨迹。两条轨迹的差别可以用
+<img src="http://latex.codecogs.com/gif.latex?\Delta_F^\pi(s,a,b)">,其对结果的影响则是权重W。
+
+#### 非线性
 
 ## Conclusion
 
