@@ -1,6 +1,7 @@
 [toc]
 
 # [Contrastive Explanation for Reinforcement Learning via Embedded Self Prediction](./contrastive_explanations_for_reinforcement_learning_via_embedded_self_predictions.pdf)
+[arxiv](https://arxiv.org/abs/2010.05180)
 
 ## Motivation
 文章中两个非常显著的亮点，
@@ -15,10 +16,10 @@ agent决策动作时偏好价值函数更大的动作，不同于人类会区分
 $A$为动作空间，
 $T(s, a, s \prime)$为转移函数，
 $R(s, a)$为奖励函数。
-目标是找到一个最优策略$\pi^*$满足
+目标是找到一个最优策略$\pi^*$
+满足
 $\pi^* = \mathop{\arg\min}\limits_{a}=Q^*(s, a)$。
-文章希望通过解释在状态s下的嵌入向量展示为什么agent更倾向于价值更大的动作a，即
-$\hat Q(s, a) > \hat Q(s, b)$。
+文章希望通过解释在状态s下的嵌入向量展示为什么agent更倾向于价值更大的动作a，即$\hat Q(s, a) > \hat Q(s, b)$。
 
 <br/>
 
