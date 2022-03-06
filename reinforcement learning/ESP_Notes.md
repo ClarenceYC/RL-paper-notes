@@ -4,7 +4,7 @@
 ## Motivation
 文章中两个非常显著的亮点，
 * 状态特征可解释性，通过利用人可理解的特征展示agent选择偏好动作的原因
-* 状态广义值函数(GVF)，用于捕捉有意的具体轨迹特征
+* 状态广义值函数(GVF)，用于捕捉有意的具体轨迹特征（此处隐性建模了环境的状态转移）
 
 agent决策动作时偏好价值函数更大的动作，不同于人类会区分不同状态的性质差异。文章通过将状态映射到设计有物理含义的手工特征上，并用GVF捕捉未来有具体意义的轨迹特征。
 
@@ -66,9 +66,16 @@ $$\theta_i(s, a, b) = \int_{0}^{1} \frac{\partial \hat C(\hat Q_F^\pi(s, b)-\alp
 $$\hat Q(s,a) - \hat Q(s,b) = \theta (s, a, b) \cdot \Delta_F(s, a, b)$$
 可以得到和线性情况相同的解释。
 
+#### Minimal Sufficient Explanations
+在手工特征改变使得最后$Q$函数变大的下标集合为$P=\{i|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)>0\}$，相对的$N = \bar P$
+$MSX$表示使得轨迹变化带来正收益的最小手工特征集合（也即对当前影响最关键的几个特征）。$$MSX = \mathop{\arg\min}\limits_{E} \{|E|:E \subset P \& \sum_{i \in E}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|} > \sum_{i \in N}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|}\}$$
+
 ### Experiment
 ![](fig\Contrastive%20Explanation%20for%20RL%20via%20ESP\exp.jpg)
+上图展示在当前状态下不同动作对未来轨迹特征的GVF在未来的影响以及$MSX$
 
 ## Conclusion
+文章通过设计手工刻画轨迹特征作为GVF隐式的刻画当前动作对未来轨迹的影响，并可以通过不同动作价值的在GVF的梯度解释agent更偏爱某一个动作的原因。
 
 ## Discussion
+
