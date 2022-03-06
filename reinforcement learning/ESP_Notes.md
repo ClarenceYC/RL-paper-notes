@@ -68,7 +68,8 @@ $$\hat Q(s,a) - \hat Q(s,b) = \theta (s, a, b) \cdot \Delta_F(s, a, b)$$
 
 #### Minimal Sufficient Explanations
 在手工特征改变使得最后$Q$函数变大的下标集合为$P=\{i|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)>0\}$，相对的$N = \bar P$
-$MSX$表示使得轨迹变化带来正收益的最小手工特征集合（也即对当前影响最关键的几个特征）。$$MSX = \mathop{\arg\min}\limits_{E} \{|E|:E \subset P \& \sum_{i \in E}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|} > \sum_{i \in N}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|}\}$$
+$MSX$表示使得轨迹变化带来正收益的最小手工特征集合（也即对当前影响最关键的几个特征）。
+$$MSX = \mathop{\arg\min}\limits_{E} \{|E|:E \subset P \ and\ \sum_{i \in E}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|} > \sum_{i \in N}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|}\}$$
 
 ### Experiment
 ![](fig\Contrastive%20Explanation%20for%20RL%20via%20ESP\exp.jpg)
