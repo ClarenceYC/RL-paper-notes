@@ -5,5 +5,5 @@
 
 ## 已完成目录
 [Contrastive Explanation for Reinforcement Learning via Embedded Self Prediction](reinforcement_learning/ESP_Notes.md)
-<br/>
+
 [BeBold: Exploration Beyond the Boundary of Explored Regions](reinforcement_learning/BeBold_Notes.md)
