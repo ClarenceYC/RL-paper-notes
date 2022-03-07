@@ -36,14 +36,14 @@ $Q_F^\pi(s, a) = F(s,a) + \gamma\sum_{s\prime}T(s, a, s \prime)Q_F^\pi(s \prime,
 
 整个模型的框架可以如下图展现，最后将状态GVF再映射到Q函数上。
 
-![](fig/Contrastive%20Explanation%20for%20RL%20via%20ESP/ESP_frame.jpg)
+![](fig/Contrastive_Explanation_for_RL_via_ESP/ESP_frame.jpg)
 
 ### 训练
 如同上图展示，$\hat C(\cdot;\theta_C )$将状态广义价值函数映射至Q值；
 $\hat Q_F^\pi(\cdot; \theta_F)$将状态映射至人工设置状态价值特征。
 其对应训练算法如下图所示
 
-![](fig/Contrastive%20Explanation%20for%20RL%20via%20ESP/ESP_algo.jpg)
+![](fig/Contrastive_Explanation_for_RL_via_ESP/ESP_algo.jpg)
 
 ### 动作差异可解释性分析
 对$\hat Q(s,a) - \hat Q(s,b) > 0$有$\Delta_F^\pi(s, a, b)$，进一步
@@ -72,7 +72,7 @@ $MSX$表示使得轨迹变化带来正收益的最小手工特征集合（也即
 $$MSX = \mathop{\arg\min}\limits_{E} \{|E|:E \subset P \ and\ \sum_{i \in E}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|} > \sum_{i \in N}{|\Delta_{F, i}(s, a, b) \cdot \theta_i(s, a, b)|}\}$$
 
 ### Experiment
-![](fig\Contrastive%20Explanation%20for%20RL%20via%20ESP\exp.jpg)
+![](fig\Contrastive_Explanation_for_RL_via_ESP\exp.jpg)
 上图展示在当前状态下不同动作对未来轨迹特征的GVF在未来的影响以及$MSX$
 
 ## Conclusion
