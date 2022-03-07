@@ -17,8 +17,30 @@ $$r^{intrinsic} = \mathop{\max} \left (\frac{1}{N(s_{t+1})} - \frac{1}{N(s_t)}, 
 
 $$N(s) \approx \frac{1}{||\phi \prime (s) - \phi (s)||_2}$$
 
+![](fig/BeBold/demo.jpg)
+
+如上图所示，开始agent会在自己的房间里转悠，使得房间内的状态访问次数都比较大，而通往其它房间的状态的访问次数比较小，就使得通往其它房间的状态instrinsic reward变大而去访问新的状态。
+
 便可以得出$r^{intrinsic}$的估计
 
 $$r^{intrinsic} = \mathop{\max} \left (||\phi \prime (s_{t+1}) - \phi (s_{t+1})||_2 - ||\phi \prime (s_t) - \phi (s_t)||_2, 0 \right )$$
 
+### Episodic Restriction on Intrinsic Reward (ERIR)
+在多数情况下环境内之间的状态是可逆的，如果直接使用intrinsic reward引导agent探索很可能使agent在状态$s_{t+1}$和之前相对充分探索的状态之间反复跳转。为避免这种弊端，文章中仅仅对一条轨迹中的第一次访问$s_{t+1}$产生instrinsic reward。$\mathbb I \left(N_e(s_{t+1}) = 1\right)$表示在一条轨迹中第一次出现状态$s_{t+1}$。
+
+$$r^{ERIR} = \mathop{\max} \left (||\phi \prime (s_{t+1}) - \phi (s_{t+1})||_2 - ||\phi \prime (s_t) - \phi (s_t)||_2, 0 \right ) \cdot \mathbb I \left ( N_e \left ( s^{t+1} \right ) = 1 \right )$$
+
 ## Experiment
+
+![](fig/BeBold/environment.jpg)
+
+![](fig/BeBold/main_exp.jpg)
+
+上图展现BeBold强大的探索能力，所有MiniGrid环境都能被解决。
+
+### Abalation Study
+* $ERIR = \mathop{(\cdot) \cdot \mathbb I \left(N_e(s_{t+1}) = 1\right)}$
+* $Clipping = \mathop{\max} \left (||\phi \prime (s_{t+1}) - \phi (s_{t+1})||_2 - ||\phi \prime (s_t) - \phi (s_t)||_2, 0 \right )$
+* $w/o \ Clipping = ||\phi \prime (s_{t+1}) - \phi (s_{t+1})||_2 - ||\phi \prime (s_t) - \phi (s_t)||_2$
+
+![](fig/BeBold/ablation.jpg)
