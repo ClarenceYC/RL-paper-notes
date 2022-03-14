@@ -1,4 +1,4 @@
-# [Contrastive Explanation for Reinforcement Learning via Embedded Self Prediction](./contrastive_explanations_for_reinforcement_learning_via_embedded_self_predictions.pdf)
+# Contrastive Explanation for Reinforcement Learning via Embedded Self Prediction
 [arxiv](https://arxiv.org/abs/2010.05180)
 
 ## Motivation
