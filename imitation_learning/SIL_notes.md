@@ -27,11 +27,29 @@ $$
 
 其中 $\left( \cdot \right )_+ = \mathop{\max}\left ( \cdot, 0\right )$, $\pi_\theta(\cdot) \& V_\theta(\cdot)$分别代表以$\theta$为参数的actor & critic 网络，$\beta^{sil} \in \mathbb R^+$是平衡超参数。
 
-### A2C with SIL
+loss直觉解释，对于$\mathcal L^{sil}_{policy}$对历史上的轨迹，如果比当前value函数的估值要高就尽可能模仿历史（Replay Buffer）上的动作；
+对于$\mathcal L^{sil}_{value}$，尽可能保有在历史状态(Replay Buffer)和当前探索最大状态估值。
 
+### A2C with SIL
+将A2C loss 和 SIL loss结合即可得到该框架方法
+
+$$
+    \left \{ 
+        \begin{aligned}
+            & \mathcal L^{a2c} = \mathbb E_{s, a \sim \pi_\theta}[\mathcal L^{a2c}_{policy} + \beta^{a2c} \mathcal L^{a2c}_{value}] \\
+            & \mathcal L^{a2c}_{policy} = - \mathop{\log}\pi_\theta(a|s)\left (V_t^n-V_\theta(s) \right ) + \alpha \mathcal H_t^{\pi_\theta}\\
+            & \mathcal L^{a2c}_{value} = \frac{1}{2} ||V_t^n-V_\theta(s) ||^2
+        \end{aligned}
+    \right. 
+$$
+
+其中$V_t^n = \sum_{d=0}^{n-1} \gamma^d r_{t+d} + \gamma^n V_\theta(s_{t+n})$是n-step episode 价值估计
+
+可得到如下算法
 
 ![](fig/SIL/algo.png)
 
 ### Prioritized Replay
+为了尽可能好的采样$\mathcal D$中的样本，将$||R-V_\theta(s) ||_+$作为每个样本的采样权重，这样便可以在Replay Buffer中尽可能采样比当前策略好的状态轨迹。
 
 ## Experiment
