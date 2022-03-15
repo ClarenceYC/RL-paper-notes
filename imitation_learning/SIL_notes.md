@@ -53,3 +53,8 @@ $$
 为了尽可能好的采样$\mathcal D$中的样本，将$||R-V_\theta(s) ||_+$作为每个样本的采样权重，这样便可以在Replay Buffer中尽可能采样比当前策略好的状态轨迹。
 
 ## Experiment
+![](fig/SIL/Atari_exp.jpg)
+
+![](fig/SIL/MuJoCo_exp.png)
+
+![](fig/SIL/relative_exp.jpg)
