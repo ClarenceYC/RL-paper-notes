@@ -14,3 +14,11 @@ agent策略为$\pi_\phi\left ( a | \boldsymbol s \right )$其目标为最小化$
 相应的利用$p_\theta$可以估计$d^{\pi_\phi}$,可以得到如下目标：
 
 $$\sum_{t=0}^{T} \mathcal H(\boldsymbol s_t) = - \sum_{t=0}^{T} \mathbb E_{\boldsymbol s_t \sim d^{\pi_\phi}(\boldsymbol s_t)}\left [\mathop{log} d^{\pi_\phi}(\boldsymbol s_t) \right ] \leq - \sum_{t=0}^{T} \mathbb E_{\boldsymbol s_t \sim d^{\pi_\phi}(\boldsymbol s_t)}\left [\mathop{log} p_{\theta_{t-1}}(\boldsymbol s_t) \right ]$$
+
+上述$p_{\theta_{t-1}}$为利用当前已观测的序列$\tau_t = \left \{\boldsymbol s_1, \cdots, \boldsymbol s_t \right \}$的估计。
+
+由于在最小化episode的状态分布的熵，则可以设计学习的reward如下：
+
+$$\boldsymbol r(\boldsymbol s_t) = \mathop{log} p_{\theta_{t-1}}(\boldsymbol s_t)$$
+
+![](fig/SMiRL/algo.png)
