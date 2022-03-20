@@ -7,3 +7,5 @@
 [Contrastive Explanation for Reinforcement Learning via Embedded Self Prediction](reinforcement_learning/ESP_Notes.md)
 
 [BeBold: Exploration Beyond the Boundary of Explored Regions](reinforcement_learning/BeBold_Notes.md)
+
+[SMiRL: Surprise Minimizing Reinforcement Learning in Unstable Environments](reinforcement_learning/SMiRL_Notes.md)
