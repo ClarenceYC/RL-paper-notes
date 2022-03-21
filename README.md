@@ -7,3 +7,5 @@
 [Contrastive Explanation for Reinforcement Learning via Embedded Self Prediction](reinforcement_learning/ESP_Notes.md)
 
 [BeBold: Exploration Beyond the Boundary of Explored Regions](reinforcement_learning/BeBold_Notes.md)
+
+[An Equivalence between Loss Functions and Non-Uniform Sampling in Experience Replay](reinforcement_learning/Equivalence_loss_non-uniform_sampling.md)
